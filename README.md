@@ -1,6 +1,6 @@
 # 💰 Money Tracker API
 
-REST API backend untuk aplikasi pencatatan keuangan pribadi. Dibangun dengan **Express.js** dan **MongoDB** menggunakan arsitektur **MVC** (Model-View-Controller).
+REST API backend untuk aplikasi pencatatan keuangan pribadi. Dibangun dengan **Express.js** dan **MongoDB** menggunakan arsitektur **MVC** (Model-View-Controller). Ini adalah project based learning saja.
 
 ## ✨ Fitur
 
