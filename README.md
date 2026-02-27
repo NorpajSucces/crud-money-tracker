@@ -2,6 +2,9 @@
 
 REST API backend untuk aplikasi pencatatan keuangan pribadi. Dibangun dengan **Express.js** dan **MongoDB** menggunakan arsitektur **MVC** (Model-View-Controller). Ini adalah project based learning.
 
+## BAHAN BELAJAR
+Berikut adalah [Dokumentasi seluruh proyek](https://github.com/NorpajSucces/crud-money-tracker/blob/main/dokumentasi.md) untuk mempelajari jelas.
+
 ## Fitur
 
 - **Autentikasi** — Register & Login menggunakan JWT (JSON Web Token)
