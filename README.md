@@ -1,19 +1,19 @@
-# 💰 Money Tracker API
+# Money Tracker API
 
-REST API backend untuk aplikasi pencatatan keuangan pribadi. Dibangun dengan **Express.js** dan **MongoDB** menggunakan arsitektur **MVC** (Model-View-Controller). Ini adalah project based learning saja.
+REST API backend untuk aplikasi pencatatan keuangan pribadi. Dibangun dengan **Express.js** dan **MongoDB** menggunakan arsitektur **MVC** (Model-View-Controller). Ini adalah project based learning.
 
-## ✨ Fitur
+## Fitur
 
-- 🔐 **Autentikasi** — Register & Login menggunakan JWT (JSON Web Token)
-- 🔒 **Keamanan Data** — Password di-hash dengan bcrypt, data transaksi terisolasi per user
-- 📝 **CRUD Transaksi** — Tambah, lihat, edit, dan hapus transaksi (income/expense)
-- 📊 **Ringkasan Saldo** — Endpoint khusus untuk melihat total saldo
-- ⚠️ **Error Handling** — Pesan error yang informatif dan terstruktur
+- **Autentikasi** — Register & Login menggunakan JWT (JSON Web Token)
+- **Keamanan Data** — Password di-hash dengan bcrypt, data transaksi terisolasi per user
+- **CRUD Transaksi** — Tambah, lihat, edit, dan hapus transaksi (income/expense)
+- **Ringkasan Saldo** — Endpoint khusus untuk melihat total saldo
+- **Error Handling** — Pesan error yang informatif dan terstruktur
 
-## 📁 Struktur Folder
+## Struktur Folder
 
 ```
-crud-backend-money-tracker/
+backend-money-tracker/
 ├── controllers/
 │   ├── authController.js          # Logic register & login
 │   └── transactionsController.js  # Logic CRUD transaksi & summary
@@ -36,7 +36,7 @@ crud-backend-money-tracker/
 └── README.md                      # Dokumentasi (file ini)
 ```
 
-## 🛠️ Teknologi
+## Teknologi
 
 | Teknologi    | Fungsi                          |
 | ------------ | ------------------------------- |
@@ -48,13 +48,13 @@ crud-backend-money-tracker/
 | dotenv       | Manajemen environment variables |
 | nodemon      | Auto-restart server saat dev    |
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/username-kamu/crud-backend-money-tracker.git
-cd crud-backend-money-tracker
+git clone https://github.com/NorpajSucces/crud-money-tracker.git
+cd crud-money-tracker
 ```
 
 ### 2. Install Dependencies
@@ -91,16 +91,16 @@ npm start
 
 Server akan berjalan di `http://localhost:3000`
 
-## 📖 API Endpoints
+## API Endpoints
 
-### 🔓 Public (Tanpa Token)
+### Public (Tanpa Token)
 
 | Method | Endpoint         | Deskripsi              | Body                            |
 | ------ | ---------------- | ---------------------- | ------------------------------- |
 | POST   | `/api/register`  | Mendaftar user baru    | `{ username, password }`        |
 | POST   | `/api/login`     | Login & dapatkan token | `{ username, password }`        |
 
-### 🔒 Protected (Wajib Token di Header)
+### Protected (Wajib Token di Header)
 
 Semua endpoint di bawah ini **wajib** menyertakan header:
 
@@ -108,14 +108,14 @@ Semua endpoint di bawah ini **wajib** menyertakan header:
 Authorization: Bearer <access_token>
 ```
 
-| Method | Endpoint                      | Deskripsi                      | Body                              |
-| ------ | ----------------------------- | ------------------------------ | --------------------------------- |
-| GET    | `/api/transactions`           | Ambil semua transaksi milik user | —                               |
-| GET    | `/api/transactions/summary`   | Lihat total saldo user          | —                               |
-| GET    | `/api/transactions/:id`       | Ambil transaksi berdasarkan ID  | —                               |
-| POST   | `/api/transactions`           | Buat transaksi baru             | `{ title, amount, type }`       |
-| PUT    | `/api/transactions/:id`       | Update transaksi                | `{ title, amount, type }` (opsional) |
-| DELETE | `/api/transactions/:id`       | Hapus transaksi                 | —                               |
+| Method | Endpoint                      | Deskripsi                        | Body                                 |
+| ------ | ----------------------------- | -------------------------------- | ------------------------------------ |
+| GET    | `/api/transactions`           | Ambil semua transaksi milik user | —                                    |
+| GET    | `/api/transactions/summary`   | Lihat total saldo user           | —                                    |
+| GET    | `/api/transactions/:id`       | Ambil transaksi berdasarkan ID   | —                                    |
+| POST   | `/api/transactions`           | Buat transaksi baru              | `{ title, amount, type }`            |
+| PUT    | `/api/transactions/:id`       | Update transaksi                 | `{ title, amount, type }` (opsional) |
+| DELETE | `/api/transactions/:id`       | Hapus transaksi                  | —                                    |
 
 ### Contoh Body Transaksi
 
@@ -129,22 +129,25 @@ Authorization: Bearer <access_token>
 
 > **Catatan:** Field `type` hanya boleh diisi `"income"` atau `"expense"`.
 
-## 🧪 Contoh Penggunaan di Postman
+## Contoh Penggunaan di Postman
 
 ### 1. Register
+
 ```
 POST http://localhost:3000/api/register
 Body (JSON): { "username": "budi", "password": "budi123" }
 ```
 
 ### 2. Login
+
 ```
 POST http://localhost:3000/api/login
 Body (JSON): { "username": "budi", "password": "budi123" }
-→ Response: { "access_token": "eyJhbG..." }
+Response: { "access_token": "eyJhbG..." }
 ```
 
 ### 3. Buat Transaksi (dengan Token)
+
 ```
 POST http://localhost:3000/api/transactions
 Headers: Authorization: Bearer eyJhbG...
@@ -152,12 +155,13 @@ Body (JSON): { "title": "Beli Kopi", "amount": 25000, "type": "expense" }
 ```
 
 ### 4. Cek Saldo
+
 ```
 GET http://localhost:3000/api/transactions/summary
 Headers: Authorization: Bearer eyJhbG...
 ```
 
-## 📝 Catatan
+## Catatan
 
 - Pastikan MongoDB sudah berjalan sebelum menjalankan server.
 - Jangan pernah meng-commit file `.env` ke repository (sudah diatur di `.gitignore`).
